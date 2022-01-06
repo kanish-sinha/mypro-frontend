@@ -1,0 +1,25 @@
+label {
+    margin-bottom: 2%;
+    margin-top: 2%;
+    font-family: 'Times New Roman', Times, serif;
+    color: gray;
+    font-weight: bolder;
+}
+
+input {
+    margin-top: 2%;
+}
+
+.btn-send {
+    margin-top: 2%;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    width: 100%;
+    margin-left: 3px
+}
+
+.card {
+    margin-left: 10px;
+    margin-right: 10px
+}

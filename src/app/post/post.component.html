@@ -1,0 +1,16 @@
+<div class="text-center" style="margin-top: 2%;">
+    <button class="mybtn" mat-stroked-button color="primary">Add Post</button>
+</div>
+<div class="container px-4 px-lg-5 mt-5">
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-md-3 col-sm-6" *ngFor="let item of post" style=" margin-top: 4%;margin-bottom: 5%;">
+                <div class="card card-block">
+                    <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
+                    <h2 class="card-title mt-3 mb-3 text-center">{{item.title}}</h2>
+                    <h4 class="card-text text-center">{{'Author : '+item.author}}</h4>
+                    <button mat button class="btn btn-info">Readmore</button>
+                </div>
+            </div>
+        </div>
+    </div>

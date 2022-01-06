@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       if (this.userlist[i].email == data.email) {
         if (this.userlist[i].password == data.password) {
           localStorage.setItem('token', 'kanish');
-          this.router.navigate([''], { queryParams: { username: this.userlist[i].username } })
+          this.router.navigate(['post'], { queryParams: { _id: this.userlist[i]._id } })
         }
         else
           this.form.setErrors({ invalid: true });

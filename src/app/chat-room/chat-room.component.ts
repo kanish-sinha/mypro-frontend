@@ -36,4 +36,7 @@ export class ChatRoomComponent implements OnInit {
   //   video.srcObject = stream;
   //   document.body?.appendChild(video);
   // }
+  call() {
+    console.log('call from a user')
+  }
 }
