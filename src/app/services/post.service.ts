@@ -13,4 +13,7 @@ export class PostService {
   addpost(data: any) {
     return this.http.post(this.url, data);
   }
+  getPost(id: any) {
+    return this.http.get(this.url + '/one/' + id)
+  }
 }

@@ -31,8 +31,10 @@ export class LoginComponent implements OnInit {
     for (var i = 0; i < this.userlist.length; i++) {
       if (this.userlist[i].email == data.email) {
         if (this.userlist[i].password == data.password) {
-          localStorage.setItem('token', 'kanish');
-          this.router.navigate(['post'], { queryParams: { _id: this.userlist[i]._id } })
+          this.userservice.loginUser(data).subscribe(response => {
+            localStorage.setItem('token', response.toString())
+          })
+          // this.router.navigate(['post'], { queryParams: { _id: this.userlist[i]._id } })
         }
         else
           this.form.setErrors({ invalid: true });

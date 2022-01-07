@@ -12,7 +12,9 @@ import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostComponent } from './post/post.component';
 import { AddpostComponent } from './post/addpost/addpost.component';
-import { MatButtonModule } from '@angular/material/button'
+import { MatButtonModule } from '@angular/material/button';
+import { PostdetailComponent } from './post/postdetail/postdetail.component';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +25,7 @@ import { MatButtonModule } from '@angular/material/button'
     SignupComponent,
     PostComponent,
     AddpostComponent,
+    PostdetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { MatButtonModule } from '@angular/material/button'
     BrowserAnimationsModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

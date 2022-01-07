@@ -10,6 +10,11 @@
                             <div *ngIf="title?.touched && title?.invalid && title?.errors?.['required']" class="alert alert-danger">
                                 Enter Title
                             </div>
+                            <label>Author</label>
+                            <input formControlName="author" type="text" class="form-control" placeholder="Enter author name">
+                            <div *ngIf="author?.touched && author?.invalid && author?.errors?.['required']" class="alert alert-danger">
+                                Author name is required
+                            </div>
                         </div>
                         <label for="form_message">Content</label>
                         <textarea formControlName="content" class="form-control" placeholder="Write your message here." rows="4"></textarea>

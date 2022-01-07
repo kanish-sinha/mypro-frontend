@@ -5,15 +5,18 @@ import { LoginComponent } from './login/login.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { AddpostComponent } from './post/addpost/addpost.component';
 import { PostComponent } from './post/post.component';
+import { PostdetailComponent } from './post/postdetail/postdetail.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   { path: 'addpost', component: AddpostComponent },
+  { path: 'postdetail', component: PostdetailComponent },
   { path: 'post', component: PostComponent },
   { path: 'chatroom', component: ChatRoomComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: '', component: MainPageComponent }
+  { path: 'chat', component: MainPageComponent },
+  { path: '', component: PostComponent }
 ];
 
 @NgModule({

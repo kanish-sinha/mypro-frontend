@@ -12,6 +12,7 @@ export class AddpostComponent implements OnInit {
   form = new FormGroup({
     title: new FormControl('', [Validators.required]),
     content: new FormControl('', [Validators.required]),
+    author: new FormControl('', [Validators.required])
   })
   user: any = null;
   constructor(private route: ActivatedRoute, private router: Router, private postservice: PostService) {
@@ -21,6 +22,9 @@ export class AddpostComponent implements OnInit {
   }
   get content() {
     return this.form.get('content');
+  }
+  get author() {
+    return this.form.get('author');
   }
   ngOnInit(): void {
     this.route.queryParams.subscribe(response => {
