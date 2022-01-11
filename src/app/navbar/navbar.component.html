@@ -25,7 +25,7 @@
                         <a class="nav-link" *ngIf="userservice.loggedIn()" (click)="logout()">Logout</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" *ngIf="userservice.loggedIn()">Profile</a>
+                        <a class="nav-link" *ngIf="userservice.loggedIn()" (click)="profile()">Profile</a>
                     </li>
                 </ul>
             </form>

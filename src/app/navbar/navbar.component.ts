@@ -30,4 +30,10 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('token');
     this.router.navigate([''])
   }
+  profile() {
+    if (this.expToken != null || this.expToken != undefined)
+      this.router.navigate(['profile'], { queryParams: { _id: this.tokendetail._id } })
+    else
+      this.router.navigate(['login']);
+  }
 }

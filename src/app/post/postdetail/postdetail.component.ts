@@ -20,10 +20,27 @@ export class PostdetailComponent implements OnInit {
     this.postservice.getAllPost().subscribe(response => { this.relatedpost = response });
   }
   likeclick() {
-    this.likeselected = !this.likeselected;
-    this.postservice.patchPost(20, this.post).subscribe(response => console.log(response));
+    if (this.likeselected === true) {
+      this.likeselected = !this.likeselected;
+      this.postdetail[0].likes = this.postdetail[0].likes - 1
+      this.postservice.patchPost(this.post, (this.postdetail[0])).subscribe();
+    }
+    else {
+      this.likeselected = !this.likeselected;
+      this.postdetail[0].likes = this.postdetail[0].likes + 1;
+      this.postservice.patchPost(this.post, (this.postdetail[0])).subscribe();
+    }
   }
   dislikeclick() {
-    this.dislikeselected = !this.dislikeselected;
+    if (this.dislikeselected === false) {
+      this.dislikeselected = !this.dislikeselected;
+      this.postdetail[0].dislikes = this.postdetail[0].dislikes + 1
+      this.postservice.patchPost(this.post, (this.postdetail[0])).subscribe();
+    }
+    else {
+      this.dislikeselected = !this.dislikeselected;
+      this.postdetail[0].dislikes = this.postdetail[0].dislikes - 1
+      this.postservice.patchPost(this.post, (this.postdetail[0])).subscribe();
+    }
   }
 }

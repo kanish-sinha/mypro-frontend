@@ -14,9 +14,12 @@ export class PostService {
     return this.http.post(this.url, data);
   }
   getPost(id: any) {
-    return this.http.get(this.url + '/one/' + id)
+    return this.http.get(this.url + 'one/' + id)
   }
-  patchPost(data: any, id: any) {
+  getUserPost(id: any) {
+    return this.http.get(this.url + 'user/' + id);
+  }
+  patchPost(id: any, data: any,) {
     return this.http.patch(this.url + 'update/' + id, data)
   }
 }

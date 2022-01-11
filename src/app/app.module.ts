@@ -15,7 +15,8 @@ import { AddpostComponent } from './post/addpost/addpost.component';
 import { MatButtonModule } from '@angular/material/button';
 import { PostdetailComponent } from './post/postdetail/postdetail.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { ProfileComponent } from './profile/profile.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { MatIconModule } from '@angular/material/icon'
     PostComponent,
     AddpostComponent,
     PostdetailComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
