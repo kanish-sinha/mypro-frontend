@@ -47,7 +47,7 @@ export class SignupComponent implements OnInit {
       }
       if (i >= this.userlist.length) {
         this.userservice.addUser(user).subscribe();
-       // this.router.navigate(['login'])
+        this.router.navigate(['login'])
       }
     }
     else {

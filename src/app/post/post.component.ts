@@ -14,8 +14,10 @@ export class PostComponent implements OnInit {
   post: any;
   user: any;
   expToken: any; tokendetail: any;
+  condition = false
   constructor(private postservice: PostService, private route: ActivatedRoute,
     private router: Router, private jwtHelper: JwtHelperService) {
+    this.postservice.getAllPost().subscribe(response => { this.post = response })
     this.expToken = localStorage.getItem('token');
     if (this.expToken != null || this.expToken != undefined) {
       this.tokendetail = this.jwtHelper.decodeToken(this.expToken)
@@ -24,7 +26,6 @@ export class PostComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    this.postservice.getAllPost().subscribe(response => { this.post = response })
     this.route.queryParams.subscribe(response => { this.user = response['_id'] })
   }
   add() {

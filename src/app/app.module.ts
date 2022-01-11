@@ -15,6 +15,7 @@ import { AddpostComponent } from './post/addpost/addpost.component';
 import { MatButtonModule } from '@angular/material/button';
 import { PostdetailComponent } from './post/postdetail/postdetail.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { MatIconModule } from '@angular/material/icon'
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService],
   bootstrap: [AppComponent]

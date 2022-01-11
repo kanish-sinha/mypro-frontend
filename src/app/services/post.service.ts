@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PostService {
-  url = 'http://localhost:8000/post'
+  url = 'https://mypro-backend.herokuapp.com/post/'
   constructor(private http: HttpClient) { }
   getAllPost() {
     return this.http.get(this.url);
@@ -15,5 +15,8 @@ export class PostService {
   }
   getPost(id: any) {
     return this.http.get(this.url + '/one/' + id)
+  }
+  patchPost(data: any, id: any) {
+    return this.http.patch(this.url + 'update/' + id, data)
   }
 }

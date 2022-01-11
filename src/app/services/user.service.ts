@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http'
   providedIn: 'root'
 })
 export class UserService {
-  url = 'http://localhost:8000/user/'
+  url = 'https://mypro-backend.herokuapp.com/user/'
   constructor(private http: HttpClient) { }
   getAllUser() {
     return this.http.get(this.url + 'alluser');

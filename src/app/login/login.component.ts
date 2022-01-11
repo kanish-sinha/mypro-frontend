@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
           this.userservice.loginUser(data).subscribe(response => {
             localStorage.setItem('token', response.toString())
           })
-          // this.router.navigate(['post'], { queryParams: { _id: this.userlist[i]._id } })
+          this.router.navigate(['post'], { queryParams: { _id: this.userlist[i]._id } })
         }
         else
           this.form.setErrors({ invalid: true });
