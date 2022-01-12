@@ -51,14 +51,14 @@
                 </div>
             </div>
         </div>
-        <div class="container justify-content-center mt-5 border-left border-right">
-            <div class="d-flex justify-content-center pt-3 pb-2"> <input type="text" name="text" placeholder="+ Add a note" class="form-control addtxt"> </div>
-            <div class="d-flex justify-content-center py-2">
-                <div class="second py-2 px-2"> <span class="text1">Type your note, and hit enter to add it</span>
-                    <div class="d-flex justify-content-between py-1 pt-2">
-                        <!-- <div><img src="https://i.imgur.com/AgAC1Is.jpg" width="18"><span class="text2">Martha</span></div> -->
-                        <div><span class="text3">Upvote?</span><span class="thumbup"><i class="fa fa-thumbs-o-up"></i></span><span class="text4">3</span></div>
-                    </div>
+        <div class="d-flex flex-column col-md-8">
+            <div class="d-flex justify-content-center pt-3 pb-2"> <input #commsg type="text" name="text" placeholder="Add a comment" class="form-control addtxt" (keyup.enter)="comment(item,commsg)"> </div>
+            <div class="d-flex justify-content" *ngFor="let comment of item.comment">
+                <div class="second py-2 px-2">
+                    <span>
+                        <small id="commentuser">{{(comment.user.username|titlecase)}}</small>
+                        <small id="commentmsg">{{" : "+comment.com}}</small>
+                    </span>
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
 <div class="container px-4 px-lg-5 mt-5">
     <div class="container mt-2">
         <div class="row">
-            <div class="col-md-3 col-sm-6" *ngFor="let item of relatedpost" style=" margin-top: 4%;margin-bottom: 5%;">
+            <div class="col-md-3 col-sm-6" *ngFor="let item of relatedpost" [hidden]="item._id==postdetail[0]._id" style=" margin-top: 4%;margin-bottom: 5%;">
                 <div class="card card-block" (click)="postdetail(item)">
                     <div *ngIf="item.image!=null;else templateName">
                         <img [src]="item.image">

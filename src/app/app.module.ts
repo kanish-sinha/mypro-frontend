@@ -16,7 +16,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { PostdetailComponent } from './post/postdetail/postdetail.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { MatIconModule } from '@angular/material/icon';
-import { ProfileComponent } from './profile/profile.component'
+import { ProfileComponent } from './profile/profile.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +33,7 @@ import { ProfileComponent } from './profile/profile.component'
     PostComponent,
     AddpostComponent,
     PostdetailComponent,
-    ProfileComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,12 @@ import { ProfileComponent } from './profile/profile.component'
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSnackBarModule,
+    MatInputModule,
+    ClipboardModule
   ],
   providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService],
   bootstrap: [AppComponent]

@@ -15,6 +15,7 @@ export class ChatRoomComponent implements OnInit {
   room: any;
   messages: any;
   userlist: any;
+  private peerList: Array<any> = [];
   constructor(private route: ActivatedRoute, private msgservice: MessageService,
     private userservice: UserService, private router: Router) { }
 

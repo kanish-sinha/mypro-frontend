@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '../services/post.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { PostService } from '../services/post.service';
 export class ProfileComponent implements OnInit {
   post: any;
   userid: any;
-  constructor(private postservice: PostService, private route: ActivatedRoute) {
+  constructor(private postservice: PostService, private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe(response => this.userid = response['_id'])
     this.postservice.getUserPost(this.userid).subscribe(response => this.post = response)
   }
@@ -19,6 +19,6 @@ export class ProfileComponent implements OnInit {
 
   }
   postdetail(val: any) {
-
+    this.router.navigate(['postdetail'], { queryParams: { _id: this.userid, postid: val._id } })
   }
 }

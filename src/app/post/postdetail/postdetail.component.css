@@ -112,3 +112,15 @@ div [class^="col-"] {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
 }
+
+#commentuser {
+    font-size: large;
+    font-weight: bold;
+    font-family: 'Font Awesome 5 Free';
+    text-decoration: underline;
+}
+
+#commentmsg {
+    font-size: 12pt;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
