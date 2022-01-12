@@ -34,8 +34,9 @@ export class LoginComponent implements OnInit {
           this.userservice.loginUser(data).subscribe(response => {
             localStorage.setItem('token', response.toString())
           })
-          this.router.navigate(['post'], { queryParams: { _id: this.userlist[i]._id } })
-            // .then(() => window.location.reload());
+          setTimeout(() => {
+            this.router.navigate(['post'], { queryParams: { _id: this.userlist[i]._id } }).then(() => window.location.reload())
+          }, 2000);
         }
         else
           this.form.setErrors({ invalid: true });

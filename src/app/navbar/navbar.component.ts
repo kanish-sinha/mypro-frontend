@@ -14,12 +14,14 @@ export class NavbarComponent implements OnInit {
   constructor(private jwtHelper: JwtHelperService, private router: Router,
     public userservice: UserService) {
     this.expToken = localStorage.getItem('token');
+    console.log('construc', this.expToken);
     if (this.expToken != null || this.expToken != undefined) {
       this.tokendetail = this.jwtHelper.decodeToken(this.expToken)
     }
   }
   ngOnInit(): void {
     this.expToken = localStorage.getItem('token');
+    console.log("ngon", this.expToken)
     if (this.expToken != null || this.expToken != undefined) {
       this.tokendetail = this.jwtHelper.decodeToken(this.expToken)
     }
