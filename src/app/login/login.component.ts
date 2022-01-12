@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('token', response.toString())
           })
           this.router.navigate(['post'], { queryParams: { _id: this.userlist[i]._id } })
-            .then(() => window.location.reload());
+            // .then(() => window.location.reload());
         }
         else
           this.form.setErrors({ invalid: true });
