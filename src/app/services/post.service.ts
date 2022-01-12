@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PostService {
-  url = 'https://mypro-backend.herokuapp.com/post/'
+  url = 'https://mypro-backend.herokuapp.com/post'
   constructor(private http: HttpClient) { }
   getAllPost() {
     return this.http.get(this.url);
@@ -14,12 +14,12 @@ export class PostService {
     return this.http.post(this.url, data);
   }
   getPost(id: any) {
-    return this.http.get(this.url + 'one/' + id)
+    return this.http.get(this.url + '/one/' + id)
   }
   getUserPost(id: any) {
-    return this.http.get(this.url + 'user/' + id);
+    return this.http.get(this.url + '/user/' + id);
   }
   patchPost(id: any, data: any,) {
-    return this.http.patch(this.url + 'update/' + id, data)
+    return this.http.patch(this.url + '/update/' + id, data)
   }
 }

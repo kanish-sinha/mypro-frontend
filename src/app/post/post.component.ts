@@ -30,7 +30,7 @@ export class PostComponent implements OnInit {
     this.route.queryParams.subscribe(response => { this.user = response['_id'] })
   }
   add() {
-      this.router.navigate(['addpost'], { queryParams: { _id: this.user } });
+    this.router.navigate(['addpost'], { queryParams: { _id: this.user } });
   }
   postdetail(item: any) {
     this.router.navigate(['postdetail'], { queryParams: { _id: this.user, postid: item._id } })
