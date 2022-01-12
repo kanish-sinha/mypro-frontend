@@ -19,6 +19,10 @@ export class NavbarComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    this.expToken = localStorage.getItem('token');
+    if (this.expToken != null || this.expToken != undefined) {
+      this.tokendetail = this.jwtHelper.decodeToken(this.expToken)
+    }
   }
   chat() {
     if (this.expToken != null || this.expToken != undefined)

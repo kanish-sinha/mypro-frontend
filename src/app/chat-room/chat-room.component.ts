@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as io from 'socket.io-client';
 import { MessageService } from '../services/message.service';
 import { UserService } from '../services/user.service';
@@ -15,7 +15,8 @@ export class ChatRoomComponent implements OnInit {
   room: any;
   messages: any;
   userlist: any;
-  constructor(private route: ActivatedRoute, private msgservice: MessageService, private userservice: UserService) { }
+  constructor(private route: ActivatedRoute, private msgservice: MessageService,
+    private userservice: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.socket = io.connect(this.url);
@@ -53,5 +54,11 @@ export class ChatRoomComponent implements OnInit {
     msgelement.textContent = msg
     div?.appendChild(msgelement);
     this.socket.emit('message', { sender: this.username, chatroom: this.room, message: msg })
+  }
+  chats(val: any) {
+    this.router.navigate(['chatroom'], { queryParams: { _id: this.username, chatroom: val._id } })
+      .then(() => window.location.reload());
+  }
+  onRightClick() {
   }
 }
