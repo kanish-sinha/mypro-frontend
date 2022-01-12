@@ -10,12 +10,13 @@ import { UserService } from 'src/app/services/user.service';
 export class PostdetailComponent implements OnInit {
   post: any;
   user: any;
+  userdetail: any;
   postdetail: any;
   relatedpost: any;
   likeselected = false;
   dislikeselected = false;
   constructor(private route: ActivatedRoute, private postservice: PostService,
-    private userservice: UserService) { }
+    private userservice: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(response => {
@@ -24,7 +25,7 @@ export class PostdetailComponent implements OnInit {
     })
     this.postservice.getPost(this.post).subscribe(response => { this.postdetail = response })
     this.postservice.getAllPost().subscribe(response => { this.relatedpost = response });
-    this.userservice.getUser(this.user).subscribe(response => this.user = response)
+    this.userservice.getUser(this.user).subscribe(response => this.userdetail = response)
   }
   likeclick() {
     if (this.likeselected === true) {
@@ -55,11 +56,13 @@ export class PostdetailComponent implements OnInit {
     commsg.value = '';
     let i = ite.comment.length
     let use = {
-      user: this.user,
+      user: this.userdetail,
       com: msg
     }
     ite.comment.push(use);
-    console.log(this.postdetail[0]);
     this.postservice.patchPost(this.post, this.postdetail[0]).subscribe();
+  }
+  detail(val: any) {
+    this.router.navigate(['postdetail'], { queryParams: { _id: this.user, postid: val._id } }).then(()=>window.location.reload())
   }
 }

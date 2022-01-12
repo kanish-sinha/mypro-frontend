@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
     }
   }
   chat() {
-    if (this.expToken != null || this.expToken != undefined)
+    if (this.userservice.loggedIn())
       this.router.navigate(['chat'], { queryParams: { _id: this.tokendetail._id } })
     else
       this.router.navigate(['login'])

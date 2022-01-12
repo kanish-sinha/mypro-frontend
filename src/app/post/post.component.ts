@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { PostService } from '../services/post.service';
+import { UserService } from '../services/user.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class PostComponent implements OnInit {
   expToken: any; tokendetail: any;
   condition = false
   constructor(private postservice: PostService, private route: ActivatedRoute,
-    private router: Router, private jwtHelper: JwtHelperService) {
+    private router: Router, private jwtHelper: JwtHelperService, private userservice: UserService) {
     this.postservice.getAllPost().subscribe(response => { this.post = response })
     this.expToken = localStorage.getItem('token');
     if (this.expToken != null || this.expToken != undefined) {
@@ -29,7 +30,7 @@ export class PostComponent implements OnInit {
     this.route.queryParams.subscribe(response => { this.user = response['_id'] })
   }
   add() {
-    this.router.navigate(['addpost'], { queryParams: { _id: this.user } });
+      this.router.navigate(['addpost'], { queryParams: { _id: this.user } });
   }
   postdetail(item: any) {
     this.router.navigate(['postdetail'], { queryParams: { _id: this.user, postid: item._id } })
