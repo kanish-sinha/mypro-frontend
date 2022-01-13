@@ -23,7 +23,10 @@ export class PostdetailComponent implements OnInit {
       this.post = response['postid'];
       this.user = response['_id']
     })
-    this.postservice.getPost(this.post).subscribe(response => { this.postdetail = response })
+    this.postservice.getPost(this.post).subscribe(response => {
+      this.postdetail = response
+      this.imagesrc = this.postdetail[0].image[0]
+    })
     this.postservice.getAllPost().subscribe(response => { this.relatedpost = response });
     this.userservice.getUser(this.user).subscribe(response => this.userdetail = response)
   }
@@ -63,6 +66,13 @@ export class PostdetailComponent implements OnInit {
     this.postservice.patchPost(this.post, this.postdetail[0]).subscribe();
   }
   detail(val: any) {
-    this.router.navigate(['postdetail'], { queryParams: { _id: this.user, postid: val._id } }).then(()=>window.location.reload())
+    this.router.navigate(['postdetail'], { queryParams: { _id: this.user, postid: val._id } }).then(() => window.location.reload())
+  }
+  imagesrc: any;
+  change(item: any) {
+    let i = 0;
+    setTimeout(() => {
+      this.imagesrc = item[1];
+    }, 1000);
   }
 }

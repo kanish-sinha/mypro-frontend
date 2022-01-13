@@ -21,4 +21,10 @@ export class ProfileComponent implements OnInit {
   postdetail(val: any) {
     this.router.navigate(['postdetail'], { queryParams: { _id: this.userid, postid: val._id } })
   }
+  delete(val: any) {
+    this.postservice.deletePost(val._id).subscribe();
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+  }
 }

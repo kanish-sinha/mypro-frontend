@@ -22,4 +22,7 @@ export class PostService {
   patchPost(id: any, data: any,) {
     return this.http.patch(this.url + '/update/' + id, data)
   }
+  deletePost(id: any) {
+    return this.http.delete(this.url + '/' + id);
+  }
 }

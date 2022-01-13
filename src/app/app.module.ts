@@ -25,14 +25,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 @NgModule({
   declarations: [
     AppComponent,
-    ChatRoomComponent,
-    MainPageComponent,
+    ChatRoomComponent, MainPageComponent,
     NavbarComponent,
-    LoginComponent,
-    SignupComponent,
-    PostComponent,
-    AddpostComponent,
-    PostdetailComponent,
+    LoginComponent, SignupComponent,
+    PostComponent, AddpostComponent, PostdetailComponent,
     ProfileComponent
   ],
   imports: [
@@ -41,13 +37,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatSnackBarModule,
-    MatInputModule,
-    ClipboardModule
+    MatButtonModule, MatIconModule, MatDialogModule, MatFormFieldModule,
+    MatSnackBarModule, MatInputModule, ClipboardModule
   ],
   providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService],
   bootstrap: [AppComponent]
