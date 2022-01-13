@@ -124,3 +124,11 @@ div [class^="col-"] {
     font-size: 12pt;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+h2 {
+    margin-left: 4%;
+    font-size: 16pt;
+    color: brown;
+    text-decoration: underline;
+    text-decoration-style: double;
+}

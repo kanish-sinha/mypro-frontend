@@ -15,6 +15,8 @@ export class PostdetailComponent implements OnInit {
   relatedpost: any;
   likeselected = false;
   dislikeselected = false;
+  imagesrc: any;
+  images: any = [];
   constructor(private route: ActivatedRoute, private postservice: PostService,
     private userservice: UserService, private router: Router) { }
 
@@ -68,11 +70,10 @@ export class PostdetailComponent implements OnInit {
   detail(val: any) {
     this.router.navigate(['postdetail'], { queryParams: { _id: this.user, postid: val._id } }).then(() => window.location.reload())
   }
-  imagesrc: any;
-  change(item: any) {
-    let i = 0;
-    setTimeout(() => {
-      this.imagesrc = item[1];
-    }, 1000);
+  change() {
+    for (let i = 0; i < this.postdetail[0].image.length; i++) {
+      this.images.push(this.postdetail[0].image[i])
+    }
+    this.imagesrc = this.postdetail[0].image[Math.floor(Math.random() * this.postdetail[0].image.length)];
   }
 }
